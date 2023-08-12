@@ -20,6 +20,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+protected:
+	virtual void BeginPlay() override;
 
 private:
 	
@@ -36,5 +38,10 @@ private:
 
 	void Move(float Value);
 	void Turn(float Value);
+
+	APlayerController* PlayerController;
+
+public:
+	virtual void Tick(float DeltaTime) override;
 	
 };

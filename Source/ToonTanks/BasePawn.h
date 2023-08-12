@@ -18,6 +18,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void RotateTurret(FVector LookAtLocation);
 
 private:
 
@@ -32,6 +33,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USceneComponent* ProjectileSpawnPoint;
+
+	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	float TurretRotationRate{15.f};
 
 public:	
 	// Called every frame
