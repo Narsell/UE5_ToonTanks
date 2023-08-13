@@ -46,10 +46,6 @@ void ATank::Tick(float DeltaTime)
 		RotateTurret(HitResult.ImpactPoint);
 	}
 	
-	UE_LOG(LogTemp, Display, TEXT("%i"), HitResult.bBlockingHit)
-
-	//DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 30.f, 20, FColor::Red);
-
 }
 
 void ATank::Move(float Value) {
