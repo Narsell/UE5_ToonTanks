@@ -23,20 +23,23 @@ protected:
 
 private:
 
-	UPROPERTY(VisibleAnywhere, Category="Components")
+	UPROPERTY(EditDefaultsOnly, Category="Components")
 	class UCapsuleComponent* CapsuleComponent;
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UPROPERTY(EditDefaultsOnly, Category = "Components")
 	UStaticMeshComponent* BaseMesh;
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UPROPERTY(EditDefaultsOnly, Category = "Components")
 	UStaticMeshComponent* TurretMesh;
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UPROPERTY(EditDefaultsOnly, Category = "Components")
 	USceneComponent* ProjectileSpawnPoint;
 
-	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float TurretRotationRate{15.f};
+
+	UPROPERTY(EditDefaultsOnly, Category="Combat")
+	TSubclassOf<class AProjectile> ProjectileClass{};
 
 public:	
 	// Called every frame
