@@ -19,6 +19,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	void HandleDestruction();
+
+	APlayerController* GetPlayerController() { return PlayerController; }
 
 protected:
 	virtual void BeginPlay() override;

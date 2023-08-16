@@ -25,6 +25,10 @@ ABasePawn::ABasePawn()
 
 }
 
+void ABasePawn::HandleDestruction()
+{
+}
+
 // Called when the game starts or when spawned
 void ABasePawn::BeginPlay()
 {
