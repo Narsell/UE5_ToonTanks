@@ -39,13 +39,18 @@ void AProjectile::Tick(float DeltaTime)
 void AProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 	AActor* OwnerActor = GetOwner();
-	if (!OwnerActor) return;
+	if (!OwnerActor) {
+		Destroy();
+		return;
+	}
 
 	AController * InstigatorController = OwnerActor->GetInstigatorController();
 
 	if (OtherActor && OtherActor != this && OtherActor != OwnerActor) {
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, InstigatorController, this, UDamageType::StaticClass());
-		Destroy();
+		if (HitParticles) {
+			UGameplayStatics::SpawnEmitterAtLocation(this, HitParticles, GetActorLocation(), GetActorRotation());
+		}
 	}
-
+	Destroy();
 }
