@@ -23,6 +23,8 @@ public:
 
 	APlayerController* GetPlayerController() { return PlayerController; }
 
+	bool bAlive = true;
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -39,10 +41,11 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Movement")
 	float TurnRate{ 100.f };
 
+	APlayerController* PlayerController;
+
 	void Move(float Value);
 	void Turn(float Value);
 
-	APlayerController* PlayerController;
 
 public:
 	virtual void Tick(float DeltaTime) override;
